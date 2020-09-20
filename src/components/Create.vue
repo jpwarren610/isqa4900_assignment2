@@ -23,19 +23,25 @@
   </div>
 </template>
 <script>
+import { db } from '../firebaseDb'
 export default {
   data () {
     return {
       subscription: {
-        name: '',
-        description: '',
-        amount: ''
       }
     }
   },
   methods: {
-    onFormSubmit () {
-      alert(JSON.stringify(this.subscription))
+    onFormSubmit (event) {
+      event.preventDefault()
+      db.collection('subscriptions').add(this.subscription).then(() => {
+        alert('Subscription successfully created!')
+        this.subscription.name = ''
+        this.subscription.description = ''
+        this.subscription.amount = ''
+      }).catch((error) => {
+        console.log(error)
+      })
     }
   }
 }
