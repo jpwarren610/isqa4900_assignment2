@@ -20,7 +20,7 @@
           <input type="text" class="form-control" v-model="subscription.period" required />
         </div>
         <div class="form-group">
-          <button class="btn btn-primary btn-block btn-sm">Update Subscription</button>
+          <button class="btn btn-primary btn-block btn-sm" style="margin-top: 50px;">Update Subscription</button>
         </div>
       </form>
     </div>
