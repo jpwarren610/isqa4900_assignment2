@@ -7,6 +7,7 @@
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Amount</th>
+            <th scope="col">Billing Period</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -15,9 +16,10 @@
             <td>{{ subscription.name }}</td>
             <td>{{ subscription.description }}</td>
             <td>{{ subscription.amount }}</td>
+            <td>{{ subscription.period }}</td>
             <td>
-              <router-link :to="{name: 'edit', params: { id: subscription.key }}" class="btn btn-primary">Edit</router-link>
-              <button @click.prevent="deleteSubscription(subscription.key)" class="btn btn-danger">Delete</button>
+              <router-link :to="{name: 'edit', params: { id: subscription.key }}" class="btn btn-primary btn-sm">Edit</router-link>
+              <button @click.prevent="deleteSubscription(subscription.key)" class="btn btn-danger btn-sm">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -41,7 +43,8 @@ export default {
           key: doc.id,
           name: doc.data().name,
           description: doc.data().description,
-          amount: doc.data().amount
+          amount: doc.data().amount,
+          period: doc.data().period
         })
       })
     })

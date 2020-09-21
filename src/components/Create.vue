@@ -16,7 +16,11 @@
           <input type="text" class="form-control" v-model="subscription.amount" required>
         </div>
         <div class="form-group">
-          <button class="btn btn-primary btn-block">Add Subscription</button>
+          <label>Billing Period</label>
+          <input type="text" class="form-control" v-model="subscription.period" required>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block btn-sm">Add Subscription</button>
         </div>
       </form>
     </div>
@@ -39,6 +43,7 @@ export default {
         this.subscription.name = ''
         this.subscription.description = ''
         this.subscription.amount = ''
+        this.subscription.period = ''
       }).catch((error) => {
         console.log(error)
       })
